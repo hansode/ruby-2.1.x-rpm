@@ -57,10 +57,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-, root, root)
-%{_bindir}
-%{_includedir}
-%{_datadir}
-%{_libdir}
+%{_bindir}/*
+%{_includedir}/*
+%{_datadir}/*
+%{_libdir}/*
 
 %changelog
 * Fri May  9 2014 Masahito Yoshida <masahito@axsh.net> - 2.1.2
