@@ -6,7 +6,7 @@ Release:        2%{?dist}
 License:        Ruby License/GPL - see COPYING
 URL:            http://www.ruby-lang.org/
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-BuildRequires:  readline readline-devel ncurses ncurses-devel gdbm gdbm-devel glibc-devel tcl-devel gcc unzip openssl-devel db4-devel byacc make libyaml libyaml-devel libffi libffi-devel
+BuildRequires:  readline readline-devel ncurses ncurses-devel gdbm gdbm-devel glibc-devel gcc unzip openssl-devel db4-devel make libyaml libyaml-devel libffi libffi-devel
 Source0:        ftp://ftp.ruby-lang.org/pub/ruby/ruby-%{rubyver}.tar.gz
 Summary:        An interpreter of object-oriented scripting language
 Group:          Development/Languages
@@ -63,6 +63,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/*
 
 %changelog
+* Wed Oct 29 2014 Takashi Masuda <masutaka@feedforce.jp> - 2.1.2
+- Remove dependencies on tcl-devel and byacc
+
 * Fri May  9 2014 Masahito Yoshida <masahito@axsh.net> - 2.1.2
 - Update ruby version to 2.1.2
 
