@@ -6,7 +6,7 @@ Release:        2%{?dist}
 License:        Ruby License/GPL - see COPYING
 URL:            http://www.ruby-lang.org/
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-Requires:       libyaml
+Requires:       readline ncurses gdbm glibc openssl db4 libyaml libffi zlib
 BuildRequires:  readline readline-devel ncurses ncurses-devel gdbm gdbm-devel glibc glibc-devel gcc unzip openssl openssl-devel db4 db4-devel make libyaml libyaml-devel libffi libffi-devel zlib zlib-devel
 Source0:        ftp://ftp.ruby-lang.org/pub/ruby/ruby-%{rubyver}.tar.gz
 Summary:        An interpreter of object-oriented scripting language
