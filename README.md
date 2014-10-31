@@ -14,7 +14,7 @@ $ vagrant ssh
 $ mkdir -p ~/rpmbuild/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}
 $ (cd ~/rpmbuild/SOURCES && curl -LO http://cache.ruby-lang.org/pub/ruby/2.1/ruby-2.1.2.tar.gz)
 $ cp /vagrant/ruby21x.spec ~/rpmbuild/SPECS
-$ yes n | sudo yum update
+$ sudo yum update -y
 $ sudo yum install -y rpm-build
 $ rpmbuild -ba ~/rpmbuild/SPECS/ruby21x.spec
 エラー: ビルド依存性の失敗:
