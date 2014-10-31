@@ -1,4 +1,4 @@
-%define rubyver         2.1.2
+%define rubyver         2.1.4
 
 Name:           ruby
 Version:        %{rubyver}
@@ -64,6 +64,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/*
 
 %changelog
+* Fri Oct 31 2014 Takashi Masuda <masutaka@feedforce.jp> - 2.1.4
+- Update ruby version to 2.1.4
+
 * Wed Oct 29 2014 Takashi Masuda <masutaka@feedforce.jp> - 2.1.2
 - Remove dependencies on tcl-devel and byacc
 
