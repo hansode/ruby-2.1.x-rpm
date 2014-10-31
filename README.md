@@ -12,25 +12,25 @@ You need to install [VirtualBox](https://www.virtualbox.org/) and [Vagrant](http
 $ vagrant up
 $ vagrant ssh
 $ mkdir -p ~/rpmbuild/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}
-$ (cd ~/rpmbuild/SOURCES && curl -LO http://cache.ruby-lang.org/pub/ruby/2.1/ruby-2.1.2.tar.gz)
+$ (cd ~/rpmbuild/SOURCES && curl -LO http://cache.ruby-lang.org/pub/ruby/2.1/ruby-2.1.4.tar.gz)
 $ cp /vagrant/ruby21x.spec ~/rpmbuild/SPECS
 $ sudo yum update -y
 $ sudo yum install -y rpm-build
 $ rpmbuild -ba ~/rpmbuild/SPECS/ruby21x.spec
 エラー: ビルド依存性の失敗:
-        readline-devel は ruby-2.1.2-2.el6.x86_64 に必要とされています
-        ncurses-devel は ruby-2.1.2-2.el6.x86_64 に必要とされています
-        gdbm-devel は ruby-2.1.2-2.el6.x86_64 に必要とされています
-        glibc-devel は ruby-2.1.2-2.el6.x86_64 に必要とされています
-        gcc は ruby-2.1.2-2.el6.x86_64 に必要とされています
-        openssl-devel は ruby-2.1.2-2.el6.x86_64 に必要とされています
-        db4-devel は ruby-2.1.2-2.el6.x86_64 に必要とされています
-        libyaml-devel は ruby-2.1.2-2.el6.x86_64 に必要とされています
-        libffi-devel は ruby-2.1.2-2.el6.x86_64 に必要とされています
-        zlib-devel は ruby-2.1.2-2.el6.x86_64 に必要とされています
+        readline-devel は ruby-2.1.4-2.el6.x86_64 に必要とされています
+        ncurses-devel は ruby-2.1.4-2.el6.x86_64 に必要とされています
+        gdbm-devel は ruby-2.1.4-2.el6.x86_64 に必要とされています
+        glibc-devel は ruby-2.1.4-2.el6.x86_64 に必要とされています
+        gcc は ruby-2.1.4-2.el6.x86_64 に必要とされています
+        openssl-devel は ruby-2.1.4-2.el6.x86_64 に必要とされています
+        db4-devel は ruby-2.1.4-2.el6.x86_64 に必要とされています
+        libyaml-devel は ruby-2.1.4-2.el6.x86_64 に必要とされています
+        libffi-devel は ruby-2.1.4-2.el6.x86_64 に必要とされています
+        zlib-devel は ruby-2.1.4-2.el6.x86_64 に必要とされています
 $ sudo yum install -y readline-devel ncurses-devel gdbm-devel glibc-devel gcc openssl-devel db4-devel libyaml libyaml-devel libffi-devel zlib-devel
 $ rpmbuild -ba ~/rpmbuild/SPECS/ruby21x.spec
 (snip)
-書き込み完了: /home/vagrant/rpmbuild/SRPMS/ruby-2.1.2-2.el6.src.rpm
-書き込み完了: /home/vagrant/rpmbuild/RPMS/x86_64/ruby-2.1.2-2.el6.x86_64.rpm
+書き込み完了: /home/vagrant/rpmbuild/SRPMS/ruby-2.1.4-2.el6.src.rpm
+書き込み完了: /home/vagrant/rpmbuild/RPMS/x86_64/ruby-2.1.4-2.el6.x86_64.rpm
 ```
