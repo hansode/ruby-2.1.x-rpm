@@ -25,7 +25,6 @@ $ rpmbuild -ba ~/rpmbuild/SPECS/ruby21x.spec
         gcc は ruby-2.1.2-2.el6.x86_64 に必要とされています
         openssl-devel は ruby-2.1.2-2.el6.x86_64 に必要とされています
         db4-devel は ruby-2.1.2-2.el6.x86_64 に必要とされています
-        libyaml は ruby-2.1.2-2.el6.x86_64 に必要とされています
         libyaml-devel は ruby-2.1.2-2.el6.x86_64 に必要とされています
         libffi-devel は ruby-2.1.2-2.el6.x86_64 に必要とされています
         zlib-devel は ruby-2.1.2-2.el6.x86_64 に必要とされています
