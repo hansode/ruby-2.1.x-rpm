@@ -6,8 +6,8 @@ Release:        2%{?dist}
 License:        Ruby License/GPL - see COPYING
 URL:            http://www.ruby-lang.org/
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-Requires:       readline ncurses gdbm glibc openssl db4 libyaml libffi zlib
-BuildRequires:  readline-devel ncurses-devel gdbm-devel glibc-devel gcc unzip openssl-devel db4-devel make libyaml-devel libffi-devel zlib-devel
+Requires:       readline ncurses gdbm glibc openssl libyaml libffi zlib
+BuildRequires:  readline-devel ncurses-devel gdbm-devel glibc-devel gcc unzip openssl-devel make libyaml-devel libffi-devel zlib-devel
 Source0:        ftp://ftp.ruby-lang.org/pub/ruby/ruby-%{rubyver}.tar.gz
 Summary:        An interpreter of object-oriented scripting language
 Group:          Development/Languages
@@ -64,6 +64,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/*
 
 %changelog
+* Wed Nov  5 2014 Takashi Masuda <masutaka@feedforce.jp> - 2.1.4-2
+- Remove dependency db4 and db4-devel
+
 * Fri Oct 31 2014 Takashi Masuda <masutaka@feedforce.jp> - 2.1.4
 - Update ruby version to 2.1.4
 
