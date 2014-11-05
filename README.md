@@ -24,11 +24,10 @@ $ rpmbuild -ba ~/rpmbuild/SPECS/ruby21x.spec
         glibc-devel は ruby-2.1.4-2.el6.x86_64 に必要とされています
         gcc は ruby-2.1.4-2.el6.x86_64 に必要とされています
         openssl-devel は ruby-2.1.4-2.el6.x86_64 に必要とされています
-        db4-devel は ruby-2.1.4-2.el6.x86_64 に必要とされています
         libyaml-devel は ruby-2.1.4-2.el6.x86_64 に必要とされています
         libffi-devel は ruby-2.1.4-2.el6.x86_64 に必要とされています
         zlib-devel は ruby-2.1.4-2.el6.x86_64 に必要とされています
-$ sudo yum install -y readline-devel ncurses-devel gdbm-devel glibc-devel gcc openssl-devel db4-devel libyaml libyaml-devel libffi-devel zlib-devel
+$ sudo yum install -y readline-devel ncurses-devel gdbm-devel glibc-devel gcc openssl-devel libyaml-devel libffi-devel zlib-devel
 $ rpmbuild -ba ~/rpmbuild/SPECS/ruby21x.spec
 (snip)
 書き込み完了: /home/vagrant/rpmbuild/SRPMS/ruby-2.1.4-2.el6.src.rpm
@@ -52,11 +51,10 @@ ruby-2.1.4-2.el6.src.rpm をインストール中です。
         glibc-devel は ruby-2.1.4-2.el6.x86_64 に必要とされています
         gcc は ruby-2.1.4-2.el6.x86_64 に必要とされています
         openssl-devel は ruby-2.1.4-2.el6.x86_64 に必要とされています
-        db4-devel は ruby-2.1.4-2.el6.x86_64 に必要とされています
         libyaml-devel は ruby-2.1.4-2.el6.x86_64 に必要とされています
         libffi-devel は ruby-2.1.4-2.el6.x86_64 に必要とされています
         zlib-devel は ruby-2.1.4-2.el6.x86_64 に必要とされています
-$ sudo yum install -y readline-devel ncurses-devel gdbm-devel glibc-devel gcc openssl-devel db4-devel libyaml-devel libffi-devel zlib-devel
+$ sudo yum install -y readline-devel ncurses-devel gdbm-devel glibc-devel gcc openssl-devel libyaml-devel libffi-devel zlib-devel
 $ rpmbuild --rebuild ruby-2.1.4-2.el6.src.rpm
 (snip)
 書き込み完了: /home/vagrant/rpmbuild/RPMS/x86_64/ruby-2.1.4-2.el6.x86_64.rpm
