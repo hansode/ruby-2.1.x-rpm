@@ -7,7 +7,7 @@ License:        Ruby License/GPL - see COPYING
 URL:            http://www.ruby-lang.org/
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires:       readline ncurses gdbm glibc openssl libyaml libffi zlib
-BuildRequires:  readline-devel ncurses-devel gdbm-devel glibc-devel gcc unzip openssl-devel make libyaml-devel libffi-devel zlib-devel
+BuildRequires:  readline-devel ncurses-devel gdbm-devel glibc-devel gcc openssl-devel make libyaml-devel libffi-devel zlib-devel
 Source0:        ftp://ftp.ruby-lang.org/pub/ruby/ruby-%{rubyver}.tar.gz
 Summary:        An interpreter of object-oriented scripting language
 Group:          Development/Languages
