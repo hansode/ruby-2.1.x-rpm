@@ -1,4 +1,4 @@
-%define rubyver         2.1.4
+%define rubyver         2.1.5
 
 Name:           ruby
 Version:        %{rubyver}
@@ -7,7 +7,7 @@ License:        Ruby License/GPL - see COPYING
 URL:            http://www.ruby-lang.org/
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires:       readline ncurses gdbm glibc openssl libyaml libffi zlib
-BuildRequires:  readline-devel ncurses-devel gdbm-devel glibc-devel gcc unzip openssl-devel make libyaml-devel libffi-devel zlib-devel
+BuildRequires:  readline-devel ncurses-devel gdbm-devel glibc-devel gcc openssl-devel make libyaml-devel libffi-devel zlib-devel
 Source0:        ftp://ftp.ruby-lang.org/pub/ruby/ruby-%{rubyver}.tar.gz
 Summary:        An interpreter of object-oriented scripting language
 Group:          Development/Languages
@@ -64,6 +64,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/*
 
 %changelog
+* Fri Nov 14 2014 Takashi Masuda <masutaka@feedforce.jp> - 2.1.5
+- Update ruby version to 2.1.5
+- Remove dependency unzip
+
 * Wed Nov  5 2014 Takashi Masuda <masutaka@feedforce.jp> - 2.1.4-2
 - Remove dependency db4 and db4-devel
 
