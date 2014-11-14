@@ -1,4 +1,4 @@
-%define rubyver         2.1.4
+%define rubyver         2.1.5
 
 Name:           ruby
 Version:        %{rubyver}
@@ -64,6 +64,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/*
 
 %changelog
+* Fri Nov 14 2014 Takashi Masuda <masutaka@feedforce.jp> - 2.1.5
+- Update ruby version to 2.1.5
+- Remove dependency unzip
+
 * Wed Nov  5 2014 Takashi Masuda <masutaka@feedforce.jp> - 2.1.4-2
 - Remove dependency db4 and db4-devel
 
