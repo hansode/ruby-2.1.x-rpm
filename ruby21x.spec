@@ -1,8 +1,8 @@
-%define rubyver         2.1.5
+%define rubyver         2.1.2
 
 Name:           ruby
 Version:        %{rubyver}
-Release:        1%{?dist}
+Release:        2%{?dist}
 License:        Ruby License/GPL - see COPYING
 URL:            http://www.ruby-lang.org/
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -63,9 +63,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/*
 
 %changelog
-* Fri Dec  5 2014 Tony Doan <tdoan@tdoan.com> - 2.1.5
-- Update ruby version to 2.1.5
-
 * Fri May  9 2014 Masahito Yoshida <masahito@axsh.net> - 2.1.2
 - Update ruby version to 2.1.2
 
