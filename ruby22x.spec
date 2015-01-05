@@ -127,7 +127,7 @@ rm -rf $RPM_BUILD_ROOT
 - Replace --sitedir --vendordir with simpler --libdir
 - Change %{_prefix}/share to %{_datadir}
 
-* Tue Mar 7 2011 Robert Duncan <robert@robduncan.co.uk> - 1.9.2-p180-1
+* Mon Mar 7 2011 Robert Duncan <robert@robduncan.co.uk> - 1.9.2-p180-1
 - Update prerequisites to include make
 - Update ruby version to 1.9.2-p180
 - Install /usr/share documentation
