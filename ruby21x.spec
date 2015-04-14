@@ -1,4 +1,4 @@
-%define rubyver         2.1.5
+%define rubyver         2.1.6
 
 Name:           ruby
 Version:        %{rubyver}
@@ -64,6 +64,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/*
 
 %changelog
+* Tue Apr 14 2015 Takashi Masuda <masutaka@feedforce.jp> - 2.1.6
+- Update ruby version to 2.1.6
+
 * Fri Nov 14 2014 Takashi Masuda <masutaka@feedforce.jp> - 2.1.5
 - Update ruby version to 2.1.5
 - Remove dependency unzip
