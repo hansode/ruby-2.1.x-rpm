@@ -1,8 +1,9 @@
 %define rubyver         2.1.5
+%define rubyabi         2.1
 
 Name:           ruby
 Version:        %{rubyver}
-Release:        1%{?dist}
+Release:        2%{?dist}
 License:        Ruby License/GPL - see COPYING
 URL:            http://www.ruby-lang.org/
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -10,18 +11,18 @@ BuildRequires:  readline readline-devel ncurses ncurses-devel gdbm gdbm-devel gl
 Source0:        ftp://ftp.ruby-lang.org/pub/ruby/ruby-%{rubyver}.tar.gz
 Summary:        An interpreter of object-oriented scripting language
 Group:          Development/Languages
-Provides: ruby(abi) = 2.1
+Provides: ruby(abi) = %{rubyabi}
 Provides: ruby-irb
 Provides: ruby-rdoc
 Provides: ruby-libs
 Provides: ruby-devel
 Provides: rubygems
-Obsoletes: ruby
-Obsoletes: ruby-libs
-Obsoletes: ruby-irb
-Obsoletes: ruby-rdoc
-Obsoletes: ruby-devel
-Obsoletes: rubygems
+Obsoletes: ruby < %{rubyabi}
+Obsoletes: ruby-libs < %{rubyabi}
+Obsoletes: ruby-irb < %{rubyabi}
+Obsoletes: ruby-rdoc < %{rubyabi}
+Obsoletes: ruby-devel < %{rubyabi}
+Obsoletes: rubygems < %{rubyabi}
 
 %description
 Ruby is the interpreted scripting language for quick and easy
@@ -63,6 +64,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/*
 
 %changelog
+* Tue Apr 14 2015 Johnson Earls <johnson.earls@oracle.com> - 2.1.5-2
+- Fix Obsoletes header lines to allow for ruby package updates
+
 * Fri Dec  5 2014 Tony Doan <tdoan@tdoan.com> - 2.1.5
 - Update ruby version to 2.1.5
 
