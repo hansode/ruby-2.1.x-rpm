@@ -64,7 +64,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/*
 
 %changelog
-* Wed Mar 26 2015 Shota Miyamoto <miyamoto@feedforce.jp> - 2.2.1
+* Wed Mar  4 2015 Shota Miyamoto <miyamoto@feedforce.jp> - 2.2.1
 - Update ruby version to 2.2.1
 
 * Fri Dec 26 2014 Kenta ONISHI <onishi@feedforce.jp> - 2.2.0
