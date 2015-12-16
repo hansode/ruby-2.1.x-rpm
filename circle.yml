@@ -1,0 +1,18 @@
+machine:
+  timezone:
+    Asia/Tokyo
+  services:
+    - docker
+test:
+  post:
+    - docker build -t centos6.6/ruby-rpm -f Dockerfile-6.6 .
+    - docker build -t centos7.1/ruby-rpm -f Dockerfile-7.1 .
+    - docker run -v $CIRCLE_ARTIFACTS:/shared:rw centos6.6/ruby-rpm /bin/sh ./rubybuild.sh
+    - docker run -v $CIRCLE_ARTIFACTS:/shared:rw centos7.1/ruby-rpm /bin/sh ./rubybuild.sh
+deployment:
+  master:
+    branch: master
+    commands:
+      - go get github.com/aktau/github-release
+      - cp $CIRCLE_ARTIFACTS/*.rpm .
+      - ./github-release.sh
