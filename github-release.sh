@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -xe
 
 VERSION=$(cat ruby-version)
 USER="tjinjin"
