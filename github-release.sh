@@ -18,7 +18,7 @@ github-release release \
   --description "not release"
 
 # upload files
-for i in $(ls -1 *.rpm)
+for i in *.rpm
 do
   echo "* $i" >> description.md
   echo "  * $(openssl sha256 $i)" >> description.md
