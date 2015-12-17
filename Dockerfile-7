@@ -13,3 +13,4 @@ RUN mkdir -p /var/tmp/rpmbuild/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}
 WORKDIR /var/tmp/rpmbuild
 ADD rubybuild.sh /var/tmp/rpmbuild/rubybuild.sh
 ADD ruby22x.spec /var/tmp/rpmbuild/SPECS/ruby22x.spec
+ADD ruby-version /var/tmp/rpmbuild/SOURCES/ruby-version
