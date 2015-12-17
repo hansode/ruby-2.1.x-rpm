@@ -1,8 +1,8 @@
 #!/bin/sh -xe
 
 VERSION=$(cat ruby-version)
-USER="feedforce"
-REPO="ruby-rpm"
+USER="$CIRCLE_PROJECT_USERNAME"
+REPO="$CIRCLE_PROJECT_REPONAME"
 
 go get github.com/aktau/github-release
 cp $CIRCLE_ARTIFACTS/*.rpm .
