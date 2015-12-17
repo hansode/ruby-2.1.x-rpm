@@ -4,6 +4,16 @@ VERSION=$(cat ruby-version)
 USER="$CIRCLE_PROJECT_USERNAME"
 REPO="$CIRCLE_PROJECT_REPONAME"
 
+need_to_release() {
+	http_code=$(curl -sL -w "%{http_code}\\n" https://github.com/${USER}/${REPO}/tree/${VERSION} -o /dev/null)
+	test $http_code = "404"
+}
+
+if ! need_to_release; then
+	echo "$REPO $VERSION has already released."
+	exit 0
+fi
+
 go get github.com/aktau/github-release
 cp $CIRCLE_ARTIFACTS/*.rpm .
 
