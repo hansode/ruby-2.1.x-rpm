@@ -4,6 +4,9 @@ VERSION=$(cat ruby-version)
 USER="tjinjin"
 REPO="automate-ruby-rpm"
 
+go get github.com/aktau/github-release
+cp $CIRCLE_ARTIFACTS/*.rpm .
+
 # create description
 
 # create release
