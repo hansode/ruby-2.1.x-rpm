@@ -1,7 +1,7 @@
 #!/bin/env bash
 HOME=/var/tmp
 
-cd $HOME/rpmbuild/SOURCES && curl -LO http://cache.ruby-lang.org/pub/ruby/2.2/ruby-$(cat ruby-version).tar.gz
+cd $HOME/rpmbuild/SOURCES && curl -LO https://cache.ruby-lang.org/pub/ruby/2.2/ruby-$(cat ruby-version).tar.gz
 
 rpmbuild -ba $HOME/rpmbuild/SPECS/ruby22x.spec
 
