@@ -1,8 +1,11 @@
-#!/bin/bash
+#!/bin/sh -xe
 
 VERSION=$(cat ruby-version)
 USER="tjinjin"
 REPO="automate-ruby-rpm"
+
+go get github.com/aktau/github-release
+cp $CIRCLE_ARTIFACTS/*.rpm .
 
 # create description
 
@@ -15,7 +18,7 @@ github-release release \
   --description "not release"
 
 # upload files
-for i in $(ls -1 *.rpm)
+for i in *.rpm
 do
   echo "* $i" >> description.md
   echo "  * $(openssl sha256 $i)" >> description.md
