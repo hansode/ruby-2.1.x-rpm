@@ -1,8 +1,8 @@
 #!/bin/sh -xe
 
 VERSION=$(cat ruby-version)
-USER="tjinjin"
-REPO="automate-ruby-rpm"
+USER="feedforce"
+REPO="ruby-rpm"
 
 go get github.com/aktau/github-release
 cp $CIRCLE_ARTIFACTS/*.rpm .
@@ -11,8 +11,8 @@ cp $CIRCLE_ARTIFACTS/*.rpm .
 
 # create release
 github-release release \
-  --user tjinjin \
-  --repo automate-ruby-rpm \
+  --user $USER \
+  --repo $REPO \
   --tag $VERSION \
   --name "Ruby-$VERSION" \
   --description "not release"
@@ -22,8 +22,8 @@ for i in *.rpm
 do
   echo "* $i" >> description.md
   echo "  * $(openssl sha256 $i)" >> description.md
-  github-release upload --user tjinjin \
-    --repo automate-ruby-rpm \
+  github-release upload --user $USER \
+    --repo $REPO \
     --tag $VERSION \
     --name "$i" \
     --file $i
