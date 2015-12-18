@@ -27,6 +27,8 @@ github-release release \
   --name "Ruby-$VERSION" \
   --description "not release"
 
+rm -f description.md && touch description.md
+
 # upload files
 for i in *.rpm
 do
