@@ -12,5 +12,5 @@ RUN yum -y install readline-devel ncurses-devel gdbm-devel glibc-devel gcc opens
 RUN mkdir -p /var/tmp/rpmbuild/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}
 WORKDIR /var/tmp/rpmbuild
 ADD rubybuild.sh /var/tmp/rpmbuild/rubybuild.sh
-ADD ruby22x.spec /var/tmp/rpmbuild/SPECS/ruby22x.spec
+ADD ruby.spec /var/tmp/rpmbuild/SPECS/ruby.spec
 ADD ruby-version /var/tmp/rpmbuild/SOURCES/ruby-version
