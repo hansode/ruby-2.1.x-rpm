@@ -1,16 +1,14 @@
 #!/bin/sh -xe
 
 VERSION=$(cat ruby-version)
-USER="$CIRCLE_PROJECT_USERNAME"
-REPO="$CIRCLE_PROJECT_REPONAME"
 
 need_to_release() {
-	http_code=$(curl -sL -w "%{http_code}\\n" https://github.com/${USER}/${REPO}/releases/tag/${VERSION} -o /dev/null)
+	http_code=$(curl -sL -w "%{http_code}\\n" https://github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/releases/tag/${VERSION} -o /dev/null)
 	test $http_code = "404"
 }
 
 if ! need_to_release; then
-	echo "$REPO $VERSION has already released."
+	echo "$CIRCLE_PROJECT_REPONAME $VERSION has already released."
 	exit 0
 fi
 
@@ -21,8 +19,8 @@ cp $CIRCLE_ARTIFACTS/*.rpm .
 
 # create release
 github-release release \
-  --user $USER \
-  --repo $REPO \
+  --user $CIRCLE_PROJECT_USERNAME \
+  --repo $CIRCLE_PROJECT_REPONAME \
   --tag $VERSION \
   --name "Ruby-$VERSION" \
   --description "not release"
@@ -34,8 +32,8 @@ for i in *.rpm
 do
   echo "* $i" >> description.md
   echo "  * $(openssl sha256 $i)" >> description.md
-  github-release upload --user $USER \
-    --repo $REPO \
+  github-release upload --user $CIRCLE_PROJECT_USERNAME \
+    --repo $CIRCLE_PROJECT_REPONAME \
     --tag $VERSION \
     --name "$i" \
     --file $i
@@ -43,7 +41,7 @@ done
 
 # edit description
 github-release edit \
-  --user $USER \
-  --repo $REPO \
+  --user $CIRCLE_PROJECT_USERNAME \
+  --repo $CIRCLE_PROJECT_REPONAME \
   --tag $VERSION \
   --description "$(cat description.md)"
