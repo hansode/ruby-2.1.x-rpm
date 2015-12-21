@@ -16,6 +16,7 @@ if can_use_cache; then
 else
   mkdir -p $HOME/cache
   md5sum $HOME/$CIRCLE_PROJECT_REPONAME/$docker_file > $md5_digest_file
+  docker build -t $docker_image -f $docker_file .
   docker save docker_image | gzip -c > $docker_archive
 fi
 
