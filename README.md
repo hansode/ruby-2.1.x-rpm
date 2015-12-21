@@ -7,8 +7,8 @@ It's Simple.
 
 1. Create your feature branch(e.g ruby-2.2.4)
 2. Please edit 2 files.
-- ruby-version
-- ruby.spec
+    - ruby-version
+    - ruby.spec
 3. Push to the branch.
 4. Create PR.
 5. Merged PR, deployed ruby-rpm on github release by CircleCI.
