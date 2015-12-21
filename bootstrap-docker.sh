@@ -22,4 +22,4 @@ fi
 
 docker info
 
-docker run -v $CIRCLE_ARTIFACTS:/shared:rw $docker_image /bin/sh ./rubybuild.sh
+docker run -u rpmbuilder -v $CIRCLE_ARTIFACTS:/shared:rw $docker_image /bin/sh ./rubybuild.sh
