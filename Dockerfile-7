@@ -9,8 +9,8 @@ RUN yum install -y rpm-build tar make
 RUN yum -y install readline-devel ncurses-devel gdbm-devel glibc-devel gcc openssl-devel libyaml-devel libffi-devel zlib-devel
 
 # build
-RUN mkdir -p /var/tmp/rpmbuild/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}
-WORKDIR /var/tmp/rpmbuild
-ADD rubybuild.sh /var/tmp/rpmbuild/rubybuild.sh
-ADD ruby.spec /var/tmp/rpmbuild/SPECS/ruby.spec
-ADD ruby-version /var/tmp/rpmbuild/SOURCES/ruby-version
+RUN mkdir -p /root/rpmbuild/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}
+WORKDIR /root/rpmbuild
+ADD rubybuild.sh /root/rpmbuild/rubybuild.sh
+ADD ruby.spec /root/rpmbuild/SPECS/ruby.spec
+ADD ruby-version /root/rpmbuild/SOURCES/ruby-version
