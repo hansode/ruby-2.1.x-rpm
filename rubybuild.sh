@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/bin/sh
 WORK_DIR=/var/tmp
 RUBY_VERSION=$(cat ruby-version)
 RUBY_MINOR_VER=$(echo $test | sed -e "s/\([0-9]\.[0-9]\).*/\1/")
