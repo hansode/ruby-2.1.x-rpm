@@ -9,7 +9,7 @@ RUN yum install -y rpm-build tar
 RUN yum -y install readline-devel ncurses-devel gdbm-devel glibc-devel gcc openssl-devel libyaml-devel libffi-devel zlib-devel
 
 # create build user
-RUN useradd rpmbuilder
+RUN useradd -u 1000 rpmbuilder
 
 # build
 RUN mkdir -p /home/rpmbuilder/rpmbuild/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}
