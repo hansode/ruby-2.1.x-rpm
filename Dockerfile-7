@@ -12,7 +12,7 @@ RUN yum -y install readline-devel ncurses-devel gdbm-devel glibc-devel gcc opens
 RUN useradd -u 1000 rpmbuilder
 
 # build
-RUN mkdir -p /home/rpmbuilder/rpmbuild/{BUILD,BUILDrpmbuilder,RPMS,SOURCES,SPECS,SRPMS}
+RUN mkdir -p /home/rpmbuilder/rpmbuild/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}
 RUN chown rpmbuilder:rpmbuilder /home/rpmbuilder/rpmbuild/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}
 WORKDIR /home/rpmbuilder/rpmbuild
 ADD rubybuild.sh /home/rpmbuilder/rpmbuild/rubybuild.sh
