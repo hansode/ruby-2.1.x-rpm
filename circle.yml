@@ -6,8 +6,11 @@ machine:
 dependencies:
   cache_directories:
     - ~/cache
+  pre:
+    - ./build-docker.sh 6
+    - ./build-docker.sh 7
 test:
-  post:
+  override:
     - ./bootstrap-docker.sh 6
     - ./bootstrap-docker.sh 7
 deployment:
