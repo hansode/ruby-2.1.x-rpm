@@ -16,7 +16,7 @@ if [ ! -f "$docker_file" ]; then
   exit 1
 fi
 
-if can_use_cache; then
+if [ -e $docker_archive ] && can_use_cache; then
   docker load < $docker_archive
 else
   mkdir -p $HOME/cache
