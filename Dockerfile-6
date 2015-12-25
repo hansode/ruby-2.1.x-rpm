@@ -8,9 +8,13 @@ RUN yum install -y rpm-build tar
 # ruby depends
 RUN yum -y install readline-devel ncurses-devel gdbm-devel glibc-devel gcc openssl-devel libyaml-devel libffi-devel zlib-devel
 
+# create build user
+RUN useradd -u 1000 rpmbuilder
+
 # build
-RUN mkdir -p /var/tmp/rpmbuild/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}
-WORKDIR /var/tmp/rpmbuild
-ADD rubybuild.sh /var/tmp/rpmbuild/rubybuild.sh
-ADD ruby22x.spec /var/tmp/rpmbuild/SPECS/ruby22x.spec
-ADD ruby-version /var/tmp/rpmbuild/SOURCES/ruby-version
+RUN mkdir -p /home/rpmbuilder/rpmbuild/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}
+RUN chown rpmbuilder:rpmbuilder /home/rpmbuilder/rpmbuild/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}
+WORKDIR /home/rpmbuilder/rpmbuild
+ADD rubybuild.sh /home/rpmbuilder/rpmbuild/rubybuild.sh
+ADD ruby.spec /home/rpmbuilder/rpmbuild/SPECS/ruby.spec
+ADD ruby-version /home/rpmbuilder/rpmbuild/SOURCES/ruby-version

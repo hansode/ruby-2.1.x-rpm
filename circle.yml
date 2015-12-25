@@ -3,12 +3,16 @@ machine:
     Asia/Tokyo
   services:
     - docker
+dependencies:
+  cache_directories:
+    - ~/cache
+  pre:
+    - ./build-docker.sh 6
+    - ./build-docker.sh 7
 test:
-  post:
-    - docker build -t centos6/ruby-rpm -f Dockerfile-6 .
-    - docker build -t centos7/ruby-rpm -f Dockerfile-7 .
-    - docker run -v $CIRCLE_ARTIFACTS:/shared:rw centos6/ruby-rpm /bin/sh ./rubybuild.sh
-    - docker run -v $CIRCLE_ARTIFACTS:/shared:rw centos7/ruby-rpm /bin/sh ./rubybuild.sh
+  override:
+    - ./run-docker.sh 6
+    - ./run-docker.sh 7
 deployment:
   master:
     branch: master
