@@ -8,7 +8,8 @@ docker_file=Dockerfile-${CENTOS_VERSION}
 md5_digest_file=$HOME/cache/dockerfile${CENTOS_VERSION}.digest
 
 can_use_cache() {
-  md5sum --status --quiet --check $md5_digest_file > /dev/null 2>&1
+  test -e $docker_archive &&
+    md5sum --status --quiet --check $md5_digest_file > /dev/null 2>&1
 }
 
 if [ ! -f "$docker_file" ]; then
@@ -16,7 +17,7 @@ if [ ! -f "$docker_file" ]; then
   exit 1
 fi
 
-if [ -e $docker_archive ] && can_use_cache; then
+if can_use_cache; then
   docker load < $docker_archive
 else
   mkdir -p $HOME/cache
