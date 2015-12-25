@@ -11,8 +11,8 @@ dependencies:
     - ./build-docker.sh 7
 test:
   override:
-    - ./bootstrap-docker.sh 6
-    - ./bootstrap-docker.sh 7
+    - ./run-docker.sh 6
+    - ./run-docker.sh 7
 deployment:
   master:
     branch: master
