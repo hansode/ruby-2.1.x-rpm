@@ -80,4 +80,5 @@ github-release edit \
   --user $CIRCLE_PROJECT_USERNAME \
   --repo $CIRCLE_PROJECT_REPONAME \
   --tag $RUBY_VERSION \
+  --name "Ruby-${RUBY_VERSION}" \
   --description "$(cat description.md)"
