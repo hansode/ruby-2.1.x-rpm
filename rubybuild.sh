@@ -7,3 +7,4 @@ cd $HOME/rpmbuild/SOURCES && curl -LO https://cache.ruby-lang.org/pub/ruby/$RUBY
 rpmbuild -ba $HOME/rpmbuild/SPECS/ruby.spec
 
 cp $HOME/rpmbuild/RPMS/x86_64/* /shared/
+cp $HOME/rpmbuild/SRPMS/* /shared/
