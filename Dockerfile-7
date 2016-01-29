@@ -14,8 +14,8 @@ RUN useradd -u 1000 builder
 RUN mkdir -p /home/builder/rpmbuild/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}
 RUN chown -R builder:builder /home/builder/rpmbuild
 
-ADD script/rubybuild.sh /home/builder/rpmbuild/
-RUN chmod a+x /home/builder/rpmbuild/rubybuild.sh
+ADD script/build-ruby.sh /home/builder/rpmbuild/
+RUN chmod a+x /home/builder/rpmbuild/build-ruby.sh
 
 ADD ruby.spec /home/builder/rpmbuild/SPECS/
 ADD ruby-version /home/builder/rpmbuild/SOURCES/
