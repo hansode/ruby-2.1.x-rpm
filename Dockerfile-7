@@ -15,6 +15,6 @@ RUN useradd -u 1000 rpmbuilder
 RUN mkdir -p /home/rpmbuilder/rpmbuild/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}
 RUN chown rpmbuilder:rpmbuilder /home/rpmbuilder/rpmbuild/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}
 WORKDIR /home/rpmbuilder/rpmbuild
-ADD rubybuild.sh /home/rpmbuilder/rpmbuild/rubybuild.sh
+ADD script/rubybuild.sh /home/rpmbuilder/rpmbuild/rubybuild.sh
 ADD ruby.spec /home/rpmbuilder/rpmbuild/SPECS/ruby.spec
 ADD ruby-version /home/rpmbuilder/rpmbuild/SOURCES/ruby-version

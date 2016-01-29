@@ -7,14 +7,14 @@ dependencies:
   cache_directories:
     - ~/cache
   pre:
-    - ./build-docker.sh 6
-    - ./build-docker.sh 7
+    - ./script/build-docker.sh 6
+    - ./script/build-docker.sh 7
 test:
   override:
-    - ./run-docker.sh 6
-    - ./run-docker.sh 7
+    - ./script/run-docker.sh 6
+    - ./script/run-docker.sh 7
 deployment:
   master:
     branch: master
     commands:
-      - ./github-release.sh
+      - ./script/github-release.sh
