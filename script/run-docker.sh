@@ -1,4 +1,6 @@
-#!/bin/sh -xe
+#!/bin/sh
+
+set -xe
 
 CENTOS_VERSION=$1
 docker_image=centos${CENTOS_VERSION}/ruby-rpm

@@ -1,4 +1,7 @@
 #!/bin/sh
+
+set -xe
+
 RUBY_X_Y_Z_VERSION=$(cat $HOME/rpmbuild/SOURCES/ruby-version)
 RUBY_X_Y_VERSION=$(echo $RUBY_X_Y_Z_VERSION | sed -e 's@\.[0-9]$@@')
 

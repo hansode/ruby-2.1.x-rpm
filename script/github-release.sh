@@ -1,4 +1,6 @@
-#!/bin/sh -xe
+#!/bin/sh
+
+set -xe
 
 RUBY_VERSION=$(cat ruby-version)
 
