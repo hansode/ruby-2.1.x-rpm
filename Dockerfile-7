@@ -1,5 +1,5 @@
 FROM centos:7
-MAINTAINER tjinjin
+MAINTAINER feedforce Inc.
 
 # setup
 RUN yum update -y
@@ -11,10 +11,13 @@ RUN yum -y install readline-devel ncurses-devel gdbm-devel glibc-devel gcc opens
 # rpmbuild command recommends to use `builder:builder` as user:group.
 RUN useradd -u 1000 builder
 
-# build
 RUN mkdir -p /home/builder/rpmbuild/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}
-RUN chown builder:builder /home/builder/rpmbuild/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}
+RUN chown -R builder:builder /home/builder/rpmbuild
+
+ADD script/rubybuild.sh /home/builder/rpmbuild/
+RUN chmod a+x /home/builder/rpmbuild/rubybuild.sh
+
+ADD ruby.spec /home/builder/rpmbuild/SPECS/
+ADD ruby-version /home/builder/rpmbuild/SOURCES/
+
 WORKDIR /home/builder/rpmbuild
-ADD script/rubybuild.sh /home/builder/rpmbuild/rubybuild.sh
-ADD ruby.spec /home/builder/rpmbuild/SPECS/ruby.spec
-ADD ruby-version /home/builder/rpmbuild/SOURCES/ruby-version
