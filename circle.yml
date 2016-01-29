@@ -1,6 +1,4 @@
 machine:
-  timezone:
-    Asia/Tokyo
   services:
     - docker
 dependencies:
