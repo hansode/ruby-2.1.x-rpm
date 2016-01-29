@@ -2,18 +2,18 @@
 
 set -xe
 
-CENTOS_VERSION=$1
+CENTOS_MAJOR_VERSION=$1
 
-docker_archive=$HOME/cache/centos${CENTOS_VERSION}-ruby-rpm.tar.gz
-docker_image=centos${CENTOS_VERSION}/ruby-rpm
-docker_file=Dockerfile-${CENTOS_VERSION}
+DOCKER_ARCHIVE_PATH=$HOME/cache/centos${CENTOS_MAJOR_VERSION}-ruby-rpm.tar.gz
+DOCKER_IMAGE=centos${CENTOS_MAJOR_VERSION}/ruby-rpm
+DOCKER_FILE=Dockerfile-${CENTOS_MAJOR_VERSION}
 
-md5_digest_source=md5_digest.source-${CENTOS_VERSION}
-md5_digest_path=$HOME/cache/dockerfile${CENTOS_VERSION}.digest
+MD5_DIGEST_SOURCE=md5_digest.source-${CENTOS_MAJOR_VERSION}
+MD5_DIGEST_PATH=$HOME/cache/dockerfile${CENTOS_MAJOR_VERSION}.digest
 
 can_use_cache() {
-  test -e $docker_archive &&
-    md5sum --status --quiet --check $md5_digest_file > /dev/null 2>&1
+  test -e $DOCKER_ARCHIVE_PATH &&
+    md5sum --status --quiet --check $MD5_DIGEST_PATH > /dev/null 2>&1
 }
 
 md5_digest_source() {
@@ -21,22 +21,22 @@ md5_digest_source() {
   cat $DOCKER_FILE $(grep '^ADD ' $DOCKER_FILE | awk '{$1=""; $NF=""; print $0}')
 }
 
-if [ ! -f "$docker_file" ]; then
-  echo "$docker_file is not exist." >&2
+if [ ! -f "$DOCKER_FILE" ]; then
+  echo "$DOCKER_FILE is not exist." >&2
   exit 1
 fi
 
 cd $HOME/$CIRCLE_PROJECT_REPONAME
 
-md5_digest_source > $md5_digest_source
+md5_digest_source > $MD5_DIGEST_SOURCE
 
 if can_use_cache; then
-  docker load < $docker_archive
+  docker load < $DOCKER_ARCHIVE_PATH
 else
   mkdir -p $HOME/cache
-  md5sum $md5_digest_source > $md5_digest_path
-  docker build -t $docker_image -f $docker_file .
-  docker save $docker_image | gzip -c > $docker_archive
+  md5sum $MD5_DIGEST_SOURCE > $MD5_DIGEST_PATH
+  docker build -t $DOCKER_IMAGE -f $DOCKER_FILE .
+  docker save $DOCKER_IMAGE | gzip -c > $DOCKER_ARCHIVE_PATH
 fi
 
 docker info

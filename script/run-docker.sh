@@ -2,6 +2,6 @@
 
 set -xe
 
-CENTOS_VERSION=$1
-docker_image=centos${CENTOS_VERSION}/ruby-rpm
-docker run -u builder -v $CIRCLE_ARTIFACTS:/shared:rw $docker_image ./build-ruby.sh
+CENTOS_MAJOR_VERSION=$1
+DOCKER_IMAGE=centos${CENTOS_MAJOR_VERSION}/ruby-rpm
+docker run -u builder -v $CIRCLE_ARTIFACTS:/shared:rw $DOCKER_IMAGE ./build-ruby.sh
