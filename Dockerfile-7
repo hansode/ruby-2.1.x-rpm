@@ -18,6 +18,5 @@ ADD script/build-ruby.sh /home/builder/rpmbuild/
 RUN chmod a+x /home/builder/rpmbuild/build-ruby.sh
 
 ADD ruby.spec /home/builder/rpmbuild/SPECS/
-ADD ruby-version /home/builder/rpmbuild/SOURCES/
 
 WORKDIR /home/builder/rpmbuild
