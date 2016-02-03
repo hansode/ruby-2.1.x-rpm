@@ -2,7 +2,7 @@
 
 set -xe
 
-RUBY_VERSION=$(grep "%define \+rubyver" $HOME/rpmbuild/SPECS/ruby.spec | awk '{print $3}')
+RUBY_VERSION=$(grep "%define \+rubyver" $HOME/$CIRCLE_PROJECT_REPONAME/ruby.spec | awk '{print $3}')
 
 need_to_release() {
 	http_code=$(curl -sL -w "%{http_code}\\n" https://github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/releases/tag/${RUBY_VERSION} -o /dev/null)
