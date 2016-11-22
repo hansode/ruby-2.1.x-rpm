@@ -16,3 +16,8 @@ deployment:
     branch: master
     commands:
       - ./script/github-release.sh
+experimental:
+  notify:
+    branches:
+      only:
+        - master
