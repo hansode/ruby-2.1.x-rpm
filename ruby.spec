@@ -64,7 +64,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/*
 
 %changelog
-* Tue Nov 22 2016 Masato Tanaka <tanaka@feedforce.jp> - 2.3.
+* Tue Nov 22 2016 Masato Tanaka <tanaka@feedforce.jp> - 2.3.3
 - Update ruby version to 2.3.3
 
 * Wed Nov 16 2016 Masato Tanaka <tanaka@feedforce.jp> - 2.3.2
