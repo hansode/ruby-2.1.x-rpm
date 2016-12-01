@@ -17,11 +17,15 @@ Provides: ruby-rdoc
 Provides: ruby-libs
 Provides: ruby-devel
 Provides: rubygems
-Obsoletes: ruby
-Obsoletes: ruby-libs
-Obsoletes: ruby-irb
-Obsoletes: ruby-rdoc
-Obsoletes: ruby-devel
+Obsoletes: ruby < %{rubyver}
+Obsoletes: ruby-devel < %{rubyver}
+Obsoletes: ruby-irb < %{rubyver}
+Obsoletes: ruby-libs < %{rubyver}
+Obsoletes: rubygem-bigdecimal
+Obsoletes: rubygem-io-console
+Obsoletes: rubygem-json
+Obsoletes: rubygem-psych
+Obsoletes: rubygem-rdoc
 Obsoletes: rubygems
 
 %description
