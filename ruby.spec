@@ -44,7 +44,6 @@ export CFLAGS="$RPM_OPT_FLAGS -Wall -fno-strict-aliasing"
   --enable-shared \
   --disable-rpath \
   --without-X11 \
-  --without-tk \
   --includedir=%{_includedir}/ruby \
   --libdir=%{_libdir}
 
