@@ -11,7 +11,7 @@ BuildRequires:  readline-devel ncurses-devel gdbm-devel glibc-devel gcc openssl-
 Source0:        ftp://ftp.ruby-lang.org/pub/ruby/ruby-%{rubyver}.tar.gz
 Summary:        An interpreter of object-oriented scripting language
 Group:          Development/Languages
-Provides: ruby(abi) = 2.3
+Provides: ruby(abi) = 2.4
 Provides: ruby-irb
 Provides: ruby-rdoc
 Provides: ruby-libs
