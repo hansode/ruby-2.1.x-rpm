@@ -9,12 +9,19 @@ need_to_release() {
 	test $http_code = "404"
 }
 
+get_github_release() {
+  version=v0.7.2
+  wget https://github.com/aktau/github-release/releases/download/${version}/linux-amd64-github-release.tar.bz2
+  tar xjf linux-amd64-github-release.tar.bz2
+  mv bin/linux/amd64/github-release $HOME/bin
+}
+
 if ! need_to_release; then
 	echo "$CIRCLE_PROJECT_REPONAME $RUBY_VERSION has already released."
 	exit 0
 fi
 
-go get github.com/aktau/github-release
+get_github_release
 cp $CIRCLE_ARTIFACTS/*.rpm .
 
 #
