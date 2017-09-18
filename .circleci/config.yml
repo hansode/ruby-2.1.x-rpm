@@ -2,7 +2,7 @@ version: 2
 jobs:
   centos7: &centos
     docker:
-      - image: feedforce/ruby-rpm:7
+      - image: feedforce/ruby-rpm:centos7
         user: builder
     working_directory: /home/builder/rpmbuild
     steps:
@@ -36,7 +36,7 @@ jobs:
   centos6:
     <<: *centos
     docker:
-      - image: feedforce/ruby-rpm:6
+      - image: feedforce/ruby-rpm:centos6
         user: builder
 
   deploy:
