@@ -6,6 +6,11 @@ jobs:
         user: builder
     working_directory: /home/builder/rpmbuild
     steps:
+      - checkout:
+          path: ~/ruby-rpm
+      - run:
+          name: Copy SPEC file
+          command: cp ~/ruby-rpm/ruby.spec ./SPECS/
       - run:
           name: Build Ruby RPM
           command: |

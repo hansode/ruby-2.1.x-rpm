@@ -14,6 +14,4 @@ RUN useradd -u 1000 builder
 RUN mkdir -p /home/builder/rpmbuild/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}
 RUN chown -R builder:builder /home/builder/rpmbuild
 
-ADD ruby.spec /home/builder/rpmbuild/SPECS/
-
 WORKDIR /home/builder/rpmbuild
