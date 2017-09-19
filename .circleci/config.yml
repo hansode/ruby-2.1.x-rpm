@@ -41,6 +41,7 @@ jobs:
 
   deploy:
     docker:
+      # Although the Golang is not necessary, the CircleCI official image is used for fast downloading.
       - image: circleci/golang
         environment:
           - CIRCLE_ARTIFACTS: "/tmp/ruby-rpm"
