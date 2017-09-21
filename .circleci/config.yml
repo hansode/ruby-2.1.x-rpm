@@ -1,0 +1,69 @@
+version: 2
+jobs:
+  centos7: &centos
+    docker:
+      - image: feedforce/ruby-rpm:centos7
+        user: builder
+    working_directory: /home/builder/rpmbuild
+    steps:
+      - checkout:
+          path: ~/ruby-rpm
+      - run:
+          name: Copy SPEC file
+          command: cp ~/ruby-rpm/ruby.spec ./SPECS/
+      - run:
+          name: Build Ruby RPM
+          command: |
+            RUBY_X_Y_Z_VERSION=$(grep "%define \+rubyver" ./SPECS/ruby.spec | awk '{print $3}')
+            RUBY_X_Y_VERSION=$(echo $RUBY_X_Y_Z_VERSION | sed -e 's@\.[0-9]$@@')
+
+            cd ./SOURCES
+            curl -LO https://cache.ruby-lang.org/pub/ruby/$RUBY_X_Y_VERSION/ruby-$RUBY_X_Y_Z_VERSION.tar.gz
+
+            rpmbuild -ba ../SPECS/ruby.spec
+
+            mkdir /tmp/ruby-rpm
+            cp ../RPMS/x86_64/* /tmp/ruby-rpm
+            cp ../SRPMS/* /tmp/ruby-rpm
+      - store_artifacts:
+          path: /tmp/ruby-rpm
+          destination: ruby-rpm
+      - persist_to_workspace:
+          root: /tmp/ruby-rpm
+          paths:
+            - ./*
+
+  centos6:
+    <<: *centos
+    docker:
+      - image: feedforce/ruby-rpm:centos6
+        user: builder
+
+  deploy:
+    docker:
+      # Although the Golang is not necessary, the CircleCI official image is used for fast downloading.
+      - image: circleci/golang
+        environment:
+          - CIRCLE_ARTIFACTS: "/tmp/ruby-rpm"
+    working_directory: ~/ruby-rpm
+    steps:
+      - checkout
+      - attach_workspace:
+          at: /tmp/ruby-rpm
+      - deploy:
+          command: ./.circleci/github-release.sh
+
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - centos7
+      - centos6
+      - deploy:
+          requires:
+            - centos7
+            - centos6
+          filters:
+              branches:
+                only:
+                  - master
