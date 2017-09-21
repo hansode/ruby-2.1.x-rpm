@@ -51,7 +51,7 @@ jobs:
       - attach_workspace:
           at: /tmp/ruby-rpm
       - deploy:
-          command: ./script/github-release.sh
+          command: ./.circleci/github-release.sh
 
 workflows:
   version: 2
